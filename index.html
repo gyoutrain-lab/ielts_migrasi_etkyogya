@@ -11,7 +11,7 @@
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://gyoutrain-lab.github.io/ielts_migrasi_etkyogya/">
     
-    <!-- OPEN GRAPH / METADATA SOSIAL MEDIA (Menggunakan Thumbnail scene3.png) -->
+    <!-- OPEN GRAPH / METADATA SOSIAL MEDIA -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://gyoutrain-lab.github.io/ielts_migrasi_etkyogya/">
     <meta property="og:title" content="ETK Global | Persiapan IELTS & Migrasi Australia">
@@ -21,7 +21,7 @@
     <!-- GOOGLE SEARCH CONSOLE VERIFICATION TAG -->
     <meta name="google-site-verification" content="google76115da4fc3fc532">
 
-    <!-- INTEGRASI FAVICON (Menggunakan Jalur Raw logo_etk_cr.png) -->
+    <!-- INTEGRASI FAVICON -->
     <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/gyoutrain-lab/ielts_migrasi_etkyogya/main/logo_etk_cr.png">
     <link rel="shortcut icon" type="image/png" href="https://raw.githubusercontent.com/gyoutrain-lab/ielts_migrasi_etkyogya/main/logo_etk_cr.png">
 
@@ -94,7 +94,7 @@
         }
 
         /* ==========================================================================
-           3. NAVBAR & HERO PATTERNS (Menggunakan Thumbnail Asset sebagai Background)
+           3. NAVBAR & HERO PATTERNS (Subdomain 1)
            ========================================================================== */
         .main-nav {
             background: linear-gradient(90deg, rgba(15, 23, 42, 0.95) 0%, rgba(30, 58, 138, 0.85) 60%, rgba(59, 130, 246, 0.7) 100%);
@@ -144,8 +144,48 @@
         .btn-primary:hover { background: #2563eb; transform: translateY(-2px); }
 
         /* ==========================================================================
-           4. SUB-DOMAIN 2: MIGRATION LAYOUT (Grid & Dynamic Sub-tabs)
+           4. SUB-DOMAIN 2: MIGRATION SPECIAL PATTERNS (Navbar Kedua & Konten)
            ========================================================================== */
+        /* Bilah Navigasi Kedua (Dengan Latar Belakang Logo Penuh Tanpa Jarak) */
+        .migration-nav {
+            background: linear-gradient(90deg, rgba(15, 23, 42, 0.85) 0%, rgba(15, 23, 42, 0.4) 100%), 
+                        url('https://raw.githubusercontent.com/gyoutrain-lab/ielts_migrasi_etkyogya/main/logo_etk_cr.png') no-repeat left center/cover;
+            margin: 0;
+            padding: 0;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .migration-nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+            padding: 0 40px;
+        }
+        .migration-nav-logo {
+            color: #ffffff;
+            font-weight: 800;
+            font-size: 1.4rem;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
+        }
+        .migration-nav-links {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+            font-weight: 700;
+            color: #ffffff;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+        }
+        .migration-nav-links li {
+            cursor: pointer;
+            transition: color var(--transition-speed);
+        }
+        .migration-nav-links li:hover {
+            color: var(--secondary-color);
+        }
+
         .migration-hero {
             background: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(30, 41, 59, 0.9) 100%),
                         url('https://raw.githubusercontent.com/gyoutrain-lab/ielts_migrasi_etkyogya/main/scene3.png') no-repeat center center/cover;
@@ -154,7 +194,6 @@
             text-align: center;
         }
         
-        /* Sub-Navigation Hub untuk Topik Utama */
         .topic-hub-nav {
             display: flex;
             justify-content: center;
@@ -198,7 +237,6 @@
             display: block;
         }
 
-        /* Detail Teknis Box */
         .detail-block {
             background: #f8fafc;
             border-left: 4px solid var(--secondary-color);
@@ -208,7 +246,6 @@
         }
         .detail-block h4 { color: var(--primary-color); margin-bottom: 12px; font-size: 1.15rem; }
         
-        /* Step Process System */
         .step-timeline {
             margin-top: 30px;
             display: flex;
@@ -238,7 +275,6 @@
         .step-text h5 { font-size: 1.1rem; color: var(--dark-color); margin-bottom: 5px; }
         .step-text p { color: #475569; font-size: 0.95rem; }
 
-        /* External Link Anchor */
         .lnk-official {
             display: inline-flex;
             align-items: center;
@@ -325,6 +361,8 @@
             .dashboard-container { grid-template-columns: 1fr; }
             .dashboard-sidebar { display: flex; flex-direction: row; overflow-x: auto; padding: 15px; }
             .topic-hub-nav { flex-direction: column; margin-top: 20px; padding: 0 20px; }
+            .migration-nav-container { padding: 0 20px; }
+            .migration-nav-links { display: none; }
             .nav-container { padding: 0 20px; }
             .nav-links { display: none; }
         }
@@ -378,9 +416,22 @@
     </div>
 
     <!-- ==========================================================================
-        SUB-DOMAIN 2: migration.etkglobal.edu (Portal Imigrasi Australia Terperinci)
+        SUB-DOMAIN 2: migration.etkglobal.edu (Portal Imigrasi Dengan Background Nav-2 Penuh)
         ========================================================================== -->
     <div id="migration-domain" class="subdomain-view">
+        
+        <!-- NAVIGATION BAR KEDUA: Logo Aset Sebagai Latar Belakang Penuh Sudut Ke Sudut -->
+        <nav class="migration-nav">
+            <div class="migration-nav-container">
+                <div class="migration-nav-logo">ETK Migration Portal</div>
+                <ul class="migration-nav-links">
+                    <li onclick="switchMigrationTopic('indindependent-panel')">Jalur Mandiri</li>
+                    <li onclick="switchMigrationTopic('sponsor-panel')">Sponsorship</li>
+                    <li onclick="switchMigrationTopic('scholarship-panel')">Beasiswa</li>
+                </ul>
+            </div>
+        </nav>
+
         <header class="migration-hero">
             <div class="container">
                 <h1 style="font-size: 2.3rem; font-weight: 800; margin-bottom: 10px;">Portal Navigasi Migrasi Resmi Australia</h1>
@@ -388,7 +439,7 @@
             </div>
         </header>
 
-        <!-- SUB-SUB LINK HUB NAVIGATION (Dynamic Routing Panel) -->
+        <!-- SUB-SUB LINK HUB NAVIGATION -->
         <nav class="topic-hub-nav">
             <button id="hub-btn-indindependent" class="btn-hub active-hub" onclick="switchMigrationTopic('indindependent-panel')">💼 1. Jalur Mandiri<br><small>Subclass 189 / 190 / 491</small></button>
             <button id="hub-btn-sponsor" class="btn-hub" onclick="switchMigrationTopic('sponsor-panel')">🏢 2. Sponsorship Kerja<br><small>Subclass 482 / 186</small></button>
@@ -605,7 +656,7 @@
                             <select id="student-program" class="form-control" required>
                                 <option value="" disabled selected>-- Pilih Program --</option>
                                 <option value="IELTS Prep Band 9">IELTS Preparation (Target Band 9)</option>
-                                option value="General Business English">General Business English</option>
+                                <option value="General Business English">General Business English</option>
                             </select>
                         </div>
                         <button type="submit" class="btn-submit">Kirim Registrasi ke WhatsApp Admin ➔</button>
