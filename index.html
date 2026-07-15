@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO UTAMA (Google Standar) -->
+    <title>ETK Global | Jembatan Karir Internasional, Persiapan IELTS & Migrasi Australia</title>
+    <meta name="description" content="Pusat persiapan IELTS terbaik di Yogyakarta, panduan migrasi mandiri ke Australia, dan program sponsorship kerja terintegrasi dalam satu platform global.">
+    <meta name="keywords" content="IELTS Yogyakarta, migrasi mandiri australia, visa sponsor australia, beasiswa australia, ETK Global, belajar ielts jogja, subclass 189, subclass 190">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://gyoutrain-lab.github.io/ielts_etk_yogya/">
+    
+    <!-- GOOGLE SEARCH CONSOLE VERIFICATION TAG -->
+    <meta name="google-site-verification" content="google76115da4fc3fc532">
+
+    <!-- INTEGRASI FAVICON -->
+    <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/gyoutrain-lab/ielts_etk_yogya/main/logo_etk_cr.png">
+    <link rel="shortcut icon" type="image/png" href="https://raw.githubusercontent.com/gyoutrain-lab/ielts_etk_yogya/main/logo_etk_cr.png">
+
+    <style>
+        /* ==========================================================================
+           1. RESET & VARIABLE DEFINITION
+           ========================================================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+            --primary-color: #1e3a8a;
+            --secondary-color: #3b82f6;
+            --accent-color: #10b981;
+            --dark-color: #0f172a;
+            --light-color: #f8fafc;
+            --text-muted: #64748b;
+            --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            --transition-speed: 0.3s;
+        }
+
+        body {
+            background-color: var(--light-color);
+            color: var(--dark-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a { text-decoration: none; color: inherit; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .section-padding { padding: 60px 0; }
+
+        /* ==========================================================================
+           2. VIRTUAL SUBDOMAIN CONTROLLER (Routing System)
+           ========================================================================== */
+        .subdomain-view {
+            display: none;
+            min-height: 100vh;
+        }
+        .subdomain-view.active-domain {
+            display: block;
+        }
+
+        /* Navigasi Antar Subdomain (Top Switcher Bar) */
+        .subdomain-switcher {
+            background: #090d16;
+            color: #94a3b8;
+            font-size: 0.85rem;
+            padding: 8px 40px;
+            display: flex;
+            justify-content: flex-end;
+            gap: 20px;
+            border-bottom: 1px solid #1e293b;
+        }
+        .subdomain-link {
+            cursor: pointer;
+            transition: color var(--transition-speed);
+            font-weight: 600;
+        }
+        .subdomain-link:hover, .subdomain-link.active-link {
+            color: var(--secondary-color);
+        }
+        .subdomain-link span {
+            color: #475569;
+            margin-left: 5px;
+        }
+
+        /* ==========================================================================
+           3. NAVBAR & HERO PATTERNS
+           ========================================================================== */
+        .main-nav {
+            background: linear-gradient(90deg, rgba(15, 23, 42, 0.95) 0%, rgba(30, 58, 138, 0.85) 60%, rgba(59, 130, 246, 0.7) 100%);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .nav-container { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            height: 80px; 
+            padding: 0 40px;
+        }
+        .logo-area { 
+            display: flex; 
+            align-items: center; 
+            gap: 15px; 
+            font-weight: 700; 
+            font-size: 1.3rem; 
+            color: #ffffff; 
+        }
+        .logo-area img { height: 45px; }
+        
+        .nav-links { 
+            display: flex; 
+            gap: 25px; 
+            list-style: none; 
+            font-weight: 600; 
+            color: #f1f5f9; 
+        }
+        .nav-links a:hover { color: #60a5fa; }
+
+        .hero-section {
+            background: linear-gradient(135deg, rgba(30,58,138,0.95) 0%, rgba(15,23,42,0.98) 100%), 
+                        url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1200') no-repeat center center/cover;
+            color: white; padding: 100px 0; text-align: center;
+        }
+        .hero-content h1 { font-size: 2.8rem; font-weight: 800; margin-bottom: 20px; }
+        .hero-content p { font-size: 1.2rem; max-width: 700px; margin: 0 auto 30px auto; opacity: 0.9; }
+        
+        .btn-primary {
+            background: var(--secondary-color); color: white; padding: 12px 28px;
+            border-radius: 6px; font-weight: 700; display: inline-block; transition: all 0.3s; border: none; cursor: pointer;
+        }
+        .btn-primary:hover { background: #2563eb; transform: translateY(-2px); }
+
+        /* ==========================================================================
+           4. SUB-DOMAIN 2: MIGRATION LAYOUT (Grid & Dynamic Sub-tabs)
+           ========================================================================== */
+        .migration-hero {
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(30, 41, 59, 0.9) 100%),
+                        url('https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?q=80&w=1200') no-repeat center center/cover;
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+        
+        /* Sub-Navigation Hub untuk Topik Utama */
+        .topic-hub-nav {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: -30px auto 40px auto;
+            position: relative;
+            z-index: 10;
+            max-width: 900px;
+        }
+        .btn-hub {
+            flex: 1;
+            background: white;
+            color: var(--dark-color);
+            border: 1px solid #cbd5e1;
+            padding: 18px 20px;
+            border-radius: 10px;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: var(--card-shadow);
+            transition: all var(--transition-speed);
+            text-align: center;
+            font-size: 1rem;
+        }
+        .btn-hub:hover, .btn-hub.active-hub {
+            background: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        .topic-panel {
+            display: none;
+            background: white;
+            padding: 40px;
+            border-radius: 14px;
+            border: 1px solid #e2e8f0;
+            box-shadow: var(--card-shadow);
+            margin-bottom: 50px;
+        }
+        .topic-panel.active-panel {
+            display: block;
+        }
+
+        /* Detail Teknis Box */
+        .detail-block {
+            background: #f8fafc;
+            border-left: 4px solid var(--secondary-color);
+            padding: 25px;
+            margin: 25px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .detail-block h4 { color: var(--primary-color); margin-bottom: 12px; font-size: 1.15rem; }
+        
+        /* Step Process System */
+        .step-timeline {
+            margin-top: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .step-node {
+            display: flex;
+            gap: 20px;
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        .step-number {
+            background: var(--secondary-color);
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+        .step-text h5 { font-size: 1.1rem; color: var(--dark-color); margin-bottom: 5px; }
+        .step-text p { color: #475569; font-size: 0.95rem; }
+
+        /* External Link Anchor */
+        .lnk-official {
+            display: inline-flex;
+            align-items: center;
+            color: var(--secondary-color);
+            font-weight: 700;
+            margin-top: 8px;
+            font-size: 0.9rem;
+        }
+        .lnk-official:hover { text-decoration: underline; color: var(--primary-color); }
+
+        /* ==========================================================================
+           5. DASHBOARD SYSTEM (app.etkglobal.edu)
+           ========================================================================== */
+        .dashboard-container {
+            display: grid;
+            grid-template-columns: 260px 1fr;
+            min-height: calc(100vh - 40px);
+        }
+        .dashboard-sidebar {
+            background: #0f172a;
+            color: #94a3b8;
+            padding: 30px 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .dashboard-logo {
+            color: white;
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .db-link {
+            background: transparent;
+            border: none;
+            color: #94a3b8;
+            padding: 12px 15px;
+            text-align: left;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all var(--transition-speed);
+        }
+        .db-link:hover, .db-link.active-db-tab {
+            background: var(--secondary-color);
+            color: white;
+        }
+        .dashboard-viewport {
+            background: #f1f5f9;
+            padding: 40px;
+        }
+        .dashboard-panel {
+            display: none;
+            background: white;
+            padding: 35px;
+            border-radius: 12px;
+            box-shadow: var(--card-shadow);
+            border: 1px solid #e2e8f0;
+        }
+        .dashboard-panel.active-panel {
+            display: block;
+        }
+
+        .simulator-iframe-box {
+            width: 100%; height: 600px; border: 1px solid #cbd5e1; border-radius: 8px; overflow: hidden; margin-top: 20px; position: relative;
+        }
+        .simulator-iframe-box iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+
+        .form-group { display: flex; flex-direction: column; gap: 6px; margin-bottom: 20px; }
+        .form-group label { font-weight: 600; font-size: 0.9rem; color: #334155; }
+        .form-control { padding: 12px; border: 1.5px solid #cbd5e1; border-radius: 6px; outline: none; font-size: 1rem; }
+        .btn-submit { background: var(--accent-color); color: white; border: none; padding: 14px; border-radius: 6px; font-weight: 700; width: 100%; cursor: pointer; }
+        .btn-submit:hover { background: #059669; }
+
+        .chip-btn { background: #f1f5f9; border: 1px solid #e2e8f0; padding: 8px 16px; border-radius: 20px; cursor: pointer; font-weight: 600; }
+        .chip-btn.active-chip { background: var(--secondary-color); color: white; border-color: var(--secondary-color); }
+
+        footer { background: #0f172a; color: #64748b; text-align: center; padding: 40px 20px; font-size: 0.9rem; border-top: 1px solid #1e293b; }
+
+        @media (max-width: 992px) {
+            .dashboard-container { grid-template-columns: 1fr; }
+            .dashboard-sidebar { display: flex; flex-direction: row; overflow-x: auto; padding: 15px; }
+            .topic-hub-nav { flex-direction: column; margin-top: 20px; padding: 0 20px; }
+            .nav-container { padding: 0 20px; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- SWITCHER SUBDOMAIN VIRTUAL (Top Navigation) -->
+    <div class="subdomain-switcher">
+        <div class="subdomain-link active-link" onclick="switchDomain('yogyakarta-domain')">yogyakarta<span>.etkglobal.edu</span></div>
+        <div class="subdomain-link" onclick="switchDomain('migration-domain')">migration<span>.etkglobal.edu</span></div>
+        <div class="subdomain-link" onclick="switchDomain('app-domain')">app<span>.etkglobal.edu</span></div>
+    </div>
+
+    <!-- ==========================================================================
+        SUB-DOMAIN 1: yogyakarta.etkglobal.edu (Landing Page Yogyakarta)
+        ========================================================================== -->
+    <div id="yogyakarta-domain" class="subdomain-view active-domain">
+        <nav class="main-nav">
+            <div class="nav-container">
+                <div class="logo-area">
+                    <img src="https://raw.githubusercontent.com/gyoutrain-lab/ielts_etk_yogya/main/logo_etk_cr.png" alt="ETK Logo">
+                    <span>ETK Global Yogyakarta</span>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#hero">Beranda</a></li>
+                    <li><a href="#about-etk">Tentang Kami</a></li>
+                    <li><a href="#programs-etk">Program IELTS</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <section id="hero" class="hero-section">
+            <div class="container hero-content">
+                <h1>Metode Praktis Penguasaan IELTS Band 9</h1>
+                <p>Membentuk pola pikir global langsung dari Yogyakarta. Pilihan kursus intensif online & offline untuk kesiapan studi dan karir internasional.</p>
+                <button class="btn-primary" onclick="switchDomain('migration-domain')">Eksplorasi Portal Migrasi Australia ➔</button>
+            </div>
+        </section>
+
+        <section id="about-etk" class="container section-padding">
+            <div style="text-align: center; max-width: 800px; margin: 0 auto 30px auto;">
+                <h2>Pusat Bahasa & Kompetensi Global Yogyakarta</h2>
+                <p style="color: var(--text-muted); margin-top: 15px;">ETK Global hadir untuk mendobrak batas metode belajar konvensional. Melalui taktik praktis dan kurikulum teruji, kami mempersiapkan akademisi serta praktisi di Yogyakarta untuk menembus pasar internasional secara mandiri.</p>
+            </div>
+        </section>
+
+        <footer>
+            <p>&copy; 2026 ETK Global Yogyakarta. All Rights Reserved.</p>
+        </footer>
+    </div>
+
+    <!-- ==========================================================================
+        SUB-DOMAIN 2: migration.etkglobal.edu (Portal Imigrasi Australia Terperinci)
+        ========================================================================== -->
+    <div id="migration-domain" class="subdomain-view">
+        <header class="migration-hero">
+            <div class="container">
+                <h1 style="font-size: 2.3rem; font-weight: 800; margin-bottom: 10px;">Portal Navigasi Migrasi Resmi Australia</h1>
+                <p style="font-size: 1.05rem; max-width: 750px; margin: 0 auto; opacity: 0.9;">Pilih sub-jalur di bawah untuk membongkar detail prasyarat kompetensi bidang, regulasi visa, dan tata cara eksekusi teknis.</p>
+            </div>
+        </header>
+
+        <!-- SUB-SUB LINK HUB NAVIGATION (Dynamic Routing Panel) -->
+        <nav class="topic-hub-nav">
+            <button id="hub-btn-indindependent" class="btn-hub active-hub" onclick="switchMigrationTopic('indindependent-panel')">💼 1. Jalur Mandiri<br><small>Subclass 189 / 190 / 491</small></button>
+            <button id="hub-btn-sponsor" class="btn-hub" onclick="switchMigrationTopic('sponsor-panel')">🏢 2. Sponsorship Kerja<br><small>Subclass 482 / 186</small></button>
+            <button id="hub-btn-scholarship" class="btn-hub" onclick="switchMigrationTopic('scholarship-panel')">🎓 3. Jalur Beasiswa<br><small>AAS / RTP / Destination</small></button>
+        </nav>
+
+        <main class="container">
+            
+            <!-- PANEL 1: JALUR MANDIRI DETAILEd -->
+            <div id="indindependent-panel" class="topic-panel active-panel">
+                <h3>Skema Migrasi Mandiri Berbasis Poin (Skilled Independent)</h3>
+                <p style="color: var(--text-muted); margin-top: 5px;">Terbuka bagi profesional dengan keahlian khusus tinggi tanpa perlu ikatan kontrak perusahaan.</p>
+                
+                <div class="detail-block">
+                    <h4>Kualifikasi Calon & Bidang Prioritas</h4>
+                    <p><strong>Kandidat Ideal:</strong> Berusia di bawah 45 tahun, memiliki gelar akademik linier, dan minimal 3 tahun pengalaman kerja terstruktur.</p>
+                    <p><strong>Sektor Bidang Utama:</strong> 
+                        <br>• <em>Engineering & IT:</em> Software Engineer, Data Scientist, UI/UX Web Designer (Otoritas Penilai: <strong>ACS</strong>).
+                        <br>• <em>Healthcare:</em> Registered Nurse, Medical Practitioner (Otoritas Penilai: <strong>ANMAC</strong>).
+                        <br>• <em>Corporate & Trades:</em> Marketing Specialist, Content Strategist, Construction Project Manager (Otoritas Penilai: <strong>VETASSESS</strong>).
+                    </p>
+                </div>
+
+                <h4>Alur Pelaksanaan Teknis & Langkah Kerja</h4>
+                <div class="step-timeline">
+                    <div class="step-node">
+                        <div class="step-number">1</div>
+                        <div class="step-text">
+                            <h5>Raih Skor IELTS Superior</h5>
+                            <p>Target wajib: Minimal Skor 8.0 di setiap komponen (Listening, Reading, Writing, Speaking). Ini menyuntikkan <strong>20 Poin Tambahan</strong> mutlak pada sistem imigrasi.</p>
+                        </div>
+                    </div>
+                    <div class="step-node">
+                        <div class="step-number">2</div>
+                        <div class="step-text">
+                            <h5>Skill Assessment (Penilaian Keahlian)</h5>
+                            <p>Kirimkan silabus perkuliahan, ijazah, transkrip, dan surat referensi kerja ke badan penilai resmi sesuai kode pekerjaan ANZSCO Anda. Biaya berkisar AUD 500 - AUD 1,100.</p>
+                            <a href="https://www.vetassess.com.au" target="_blank" class="lnk-official">Kunjungi VETASSESS Australia ↗</a>
+                        </div>
+                    </div>
+                    <div class="step-node">
+                        <div class="step-number">3</div>
+                        <div class="step-text">
+                            <h5>Submit Expression of Interest (EOI)</h5>
+                            <p>Masukkan seluruh data dan klaim poin Anda ke portal terpusat **SkillSelect** milik pemerintah Australia. Pastikan akumulasi poin Anda berada di atas ambang batas (aman di angka 85+ poin).</p>
+                            <a href="https://immi.homeaffairs.gov.au/visas/working-in-australia/skillselect" target="_blank" class="lnk-official">Portal Resmi SkillSelect Imigrasi ↗</a>
+                        </div>
+                    </div>
+                    <div class="step-node">
+                        <div class="step-number">4</div>
+                        <div class="step-text">
+                            <h5>Lolos Undangan (ITA) & Visa Application</h5>
+                            <p>Setelah menerima *Invitation to Apply* (ITA), Anda memiliki waktu 60 hari untuk membayar biaya visa utama sebesar **AUD 4,775** dan melampirkan hasil uji medis serta catatan kepolisian (SKCK Internasional).</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PANEL 2: SPONSORSHIP KERJA DETAILEd -->
+            <div id="sponsor-panel" class="topic-panel">
+                <h3>Skema Employer Sponsorship (Jalur Kontrak Perusahaan)</h3>
+                <p style="color: var(--text-muted); margin-top: 5px;">Visa kerja yang sepenuhnya didanai dan dijamin oleh korporasi berbadan hukum resmi di Australia.</p>
+
+                <div class="detail-block">
+                    <h4>Daftar Perusahaan Teraktif & Sektor Bisnis</h4>
+                    <p>Perusahaan berikut memiliki lisensi *Approved Standard Business Sponsor* dan rutin mensponsori ekspatriat:</p>
+                    <p>
+                        • <strong>Teknologi & Digital:</strong> <em>Canva, Atlassian, Telstra, Xero</em> (Mencari posisi Senior Developer, Web Engineer, Product Manager).
+                        <br>• <strong>Kesehatan & Medis:</strong> <em>Ramsay Health Care, Healthscope, Bupa Australia</em> (Mencari Registered Nurses, Analis Medis).
+                        <br>• <strong>Agensi Media & Korporat:</strong> <em>WPP Network Australia, Publicis Sapient</em> (Mencari Content Strategy Lead, Production Manager).
+                    </p>
+                </div>
+
+                <h4>Alur Pelaksanaan Teknis & Langkah Kerja</h4>
+                <div class="step-timeline">
+                    <div class="step-node">
+                        <div class="step-number">1</div>
+                        <div class="step-text">
+                            <h5>Uji Validasi Minimum Bahasa</h5>
+                            <p>Untuk Subclass 482, syarat minimum IELTS adalah Band 5.0 - 6.0. Namun, untuk posisi manajemen atau peralihan ke Permanent Resident (Subclass 186), perusahaan mensyaratkan minimal **IELTS Band 7.0**.</p>
+                        </div>
+                    </div>
+                    <div class="step-node">
+                        <div class="step-number">2</div>
+                        <div class="step-text">
+                            <h5>Perekrutan & Uji Pasar Kerja LMT</h5>
+                            <p>Anda harus melamar kerja secara langsung dan lolos seleksi wawancara. Sebelum mensponsori Anda, perusahaan wajib melakukan *Labour Market Testing* (LMT)—membuktikan ke pemerintah bahwa posisi tersebut sudah diiklankan di Australia selama 4 minggu dan tidak ada warga lokal yang kompeten.</p>
+                        </div>
+                    </div>
+                    <div class="step-node">
+                        <div class="step-number">3</div>
+                        <div class="step-text">
+                            <h5>Proses Nominasi Perusahaan</h5>
+                            <p>Perusahaan mengajukan permohonan nominasi atas nama Anda ke Departemen Dalam Negeri Australia dan membayar retribusi kontribusi pelatihan (*Skilling Australians Fund*).</p>
+                        </div>
+                    </div>
+                    <div class="step-node">
+                        <div class="step-number">4</div>
+                        <div class="step-text">
+                            <h5>Pengajuan Aplikasi Visa Pekerja</h5>
+                            <p>Setelah nominasi disetujui, Anda mengajukan aplikasi visa kerja. Seluruh biaya administrasi visa umumnya ditanggung penuh oleh korporasi sponsor sesuai kesepakatan kontrak.</p>
+                            <a href="https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/temporary-skill-shortage-482" target="_blank" class="lnk-official">Regulasi Detail Visa 482 Imigrasi ↗</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PANEL 3: JALUR BEASISWA DETAILEd -->
+            <div id="scholarship-panel" class="topic-panel">
+                <h3>Skema Beasiswa Pendidikan Akademik & Riset</h3>
+                <p style="color: var(--text-muted); margin-top: 5px;">Pembiayaan studi tingkat lanjut sebagai batu loncatan strategis menuju ekosistem profesional Australia.</p>
+
+                <div class="detail-block">
+                    <h4>Panduan Beasiswa Utama, Program, & Kampus Tujuan</h4>
+                    <p><strong>1. Australia Awards Scholarships (AAS)</strong>
+                        <br>• <em>Program:</em> Master by Coursework / PhD.
+                        <br>• <em>Kampus Populer:</em> Australian National University (ANU), University of Melbourne, Monash University.
+                        <br>• <em>Ketentuan Vital:</em> **Wajib kembali ke Indonesia selama 2 tahun** berturut-turut setelah masa studi berakhir.
+                    </p>
+                    <p style="margin-top: 15px;"><strong>2. Research Training Program (RTP)</strong>
+                        <br>• <em>Program:</em> Master by Research / PhD Tingkat Tinggi.
+                        <br>• <em>Kampus Populer:</em> UNSW Sydney, University of Queensland, University of Sydney.
+                        <br>• <em>Keunggulan:</em> Dikurasi langsung oleh universitas terkait. **Bebas ikatan dinas**, berhak langsung bekerja di Australia pascalulus menggunakan *Graduate Visa Subclass 485*.</p>
+                </div>
+
+                <h4>Alur Pelaksanaan Teknis & Langkah Kerja</h4>
+                <div class="step-timeline">
+                    <div class="step-node">
+                        <div class="step-number">1</div>
+                        <div class="step-text">
+                            <h5>Akumulasi Akademik & Penguasaan IELTS</h5>
+                            <p>Siapkan IPK minimal 3.0. Persyaratan masuk universitas top Australia (Group of Eight) menuntut skor sertifikat **IELTS Akademik minimal 6.5 hingga 7.5** tanpa ada komponen di bawah 6.0.</p>
+                        </div>
+                    </div>
+                    <div class="step-node">
+                        <div class="step-number">2</div>
+                        <div class="step-text">
+                            <h5>Penyusunan Esai Kontribusi / Proposal Riset</h5>
+                            <p>Untuk AAS, buat esai *Statement of Purpose* yang tajam. Untuk RTP (Riset), hubungi profesor calon pembimbing di kampus Australia secara mandiri dan dapatkan *Letter of Support* resmi.</p>
+                        </div>
+                    </div>
+                    <div class="step-node">
+                        <div class="step-number">3</div>
+                        <div class="step-text">
+                            <h5>Pengajuan Pendaftaran Daring Terpadu</h5>
+                            <p>Kirim berkas pendaftaran melalui portal resmi masing-masing penyedia beasiswa sebelum batas waktu penutupan tahunan.</p>
+                            <a href="https://www.australiaawardsindonesia.org" target="_blank" class="lnk-official">Portal Pendaftaran AAS Indonesia ↗</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+
+        <footer>
+            <p>&copy; 2026 ETK Global Migration Service. All Rights Reserved.</p>
+        </footer>
+    </div>
+
+    <!-- ==========================================================================
+        SUB-DOMAIN 3: app.etkglobal.edu (Dashboard Simulator Kelas)
+        ========================================================================== -->
+    <div id="app-domain" class="subdomain-view">
+        <div class="dashboard-container">
+            <aside class="dashboard-sidebar">
+                <div class="dashboard-logo">
+                    <img src="https://raw.githubusercontent.com/gyoutrain-lab/ielts_etk_yogya/main/logo_etk_cr.png" height="35" alt="Logo">
+                    <span>ETK Academics v.26</span>
+                </div>
+                <button class="db-link active-db-tab" onclick="switchDbTab(event, 'db-placement')">IELTS Placement Test</button>
+                <button class="db-link" onclick="switchDbTab(event, 'db-matrix')">Skills Curriculum Matrix</button>
+                <button class="db-link" onclick="switchDbTab(event, 'db-registration')">Daftar Kursus</button>
+            </aside>
+
+            <main class="dashboard-viewport">
+                <div id="db-placement" class="dashboard-panel active-panel">
+                    <h2>IELTS Placement Test Simulator</h2>
+                    <p style="color: var(--text-muted); margin-bottom: 20px;">Silakan pilih tingkat uji penempatan kemampuan Anda di bawah ini:</p>
+                    
+                    <div style="display: flex; gap: 10px; margin-bottom: 20px;">
+                        <button class="chip-btn active-chip" onclick="refreshIframe(this, 'https://gyoutrain-lab.github.io/IELTS-test-band9-2/')">Basic (Band 9-2)</button>
+                        <button class="chip-btn" onclick="refreshIframe(this, 'https://gyoutrain-lab.github.io/IELTS-test-audit-1/')">Intermediate (Audit 1)</button>
+                        <button class="chip-btn" onclick="refreshIframe(this, 'https://gyoutrain-lab.github.io/IELTS-test-audit-8/')">Advanced (Audit 8)</button>
+                    </div>
+
+                    <div class="simulator-iframe-box">
+                        <iframe id="dashboardIframe" src="https://gyoutrain-lab.github.io/IELTS-test-band9-2/" title="IELTS Test Panel"></iframe>
+                    </div>
+                </div>
+
+                <div id="db-matrix" class="dashboard-panel">
+                    <h2>English Skills Matrix Curriculum</h2>
+                    <p style="color: var(--text-muted); margin-bottom: 20px;">Pemetaan kompetensi modular terintegrasi CEFR untuk akselerasi migrasi & karir:</p>
+                    <div style="background: #f8fafc; padding: 20px; border-radius: 8px; border-left: 4px solid var(--secondary-color);">
+                        <p><strong>Silabus Standardisasi Australia (VETASSESS/ACS Level Ready):</strong> Program kami didesain khusus agar performa penulisan esai (*Writing Task 2*) dan presentasi lisan (*Speaking*) Anda selaras dengan parameter penilaian teknokratis lingkungan kerja global.</p>
+                    </div>
+                </div>
+
+                <div id="db-registration" class="dashboard-panel">
+                    <h2>Formulir Pendaftaran Program ETK Global</h2>
+                    <p style="color: var(--text-muted); margin-bottom: 25px;">Data formulir ini akan langsung terhubung ke konsultan administrasi kami.</p>
+                    
+                    <form onsubmit="handleRegistrationSubmit(event)">
+                        <div class="form-group">
+                            <label for="student-name">Nama Lengkap *</label>
+                            <input type="text" id="student-name" class="form-control" placeholder="Contoh: Budi Prasetyo" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="student-phone">No. WhatsApp Aktif *</label>
+                            <input type="tel" id="student-phone" class="form-control" placeholder="Contoh: 0812XXXXXXXX" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="student-program">Pilih Program Kursus *</label>
+                            <select id="student-program" class="form-control" required>
+                                <option value="" disabled selected>-- Pilih Program --</option>
+                                <option value="IELTS Prep Band 9">IELTS Preparation (Target Band 9)</option>
+                                <option value="General Business English">General Business English</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn-submit">Kirim Registrasi ke WhatsApp Admin ➔</button>
+                    </form>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- ==========================================================================
+        CONTROLLER JAVASCRIPT
+        ========================================================================== -->
+    <script>
+        // 1. Controller Routing Subdomain Virtual Utamanya
+        function switchDomain(targetDomainId) {
+            const views = document.getElementsByClassName('subdomain-view');
+            for (let i = 0; i < views.length; i++) {
+                views[i].classList.remove('active-domain');
+            }
+            
+            const switchLinks = document.getElementsByClassName('subdomain-link');
+            for (let i = 0; i < switchLinks.length; i++) {
+                switchLinks[i].classList.remove('active-link');
+            }
+
+            document.getElementById(targetDomainId).classList.add('active-domain');
+            
+            const activeLinkIndex = (targetDomainId === 'yogyakarta-domain') ? 0 : (targetDomainId === 'migration-domain') ? 1 : 2;
+            switchLinks[activeLinkIndex].classList.add('active-link');
+            
+            window.scrollTo(0, 0);
+        }
+
+        // 2. Controller Sub-routing Dinamis untuk Topik Migrasi
+        function switchMigrationTopic(targetPanelId) {
+            // Sembunyikan semua panel topik
+            const panels = document.querySelectorAll('#migration-domain .topic-panel');
+            panels.forEach(panel => panel.classList.remove('active-panel'));
+            
+            // Hapus kelas aktif dari semua tombol hub menu
+            const buttons = document.querySelectorAll('.btn-hub');
+            buttons.forEach(btn => btn.classList.remove('active-hub'));
+
+            // Tampilkan panel target dan aktifkan tombolnya
+            document.getElementById(targetPanelId).classList.add('active-panel');
+            
+            if(targetPanelId === 'indindependent-panel') document.getElementById('hub-btn-indindependent').classList.add('active-hub');
+            if(targetPanelId === 'sponsor-panel') document.getElementById('hub-btn-sponsor').classList.add('active-hub');
+            if(targetPanelId === 'scholarship-panel') document.getElementById('hub-btn-scholarship').classList.add('active-hub');
+        }
+
+        // 3. Controller Tab Menu di Dashboard
+        function switchDbTab(event, panelId) {
+            const panels = document.getElementById('app-domain').getElementsByClassName('dashboard-panel');
+            for (let i = 0; i < panels.length; i++) { panels[i].classList.remove('active-panel'); }
+
+            const tabs = document.getElementById('app-domain').getElementsByClassName('db-link');
+            for (let i = 0; i < tabs.length; i++) { tabs[i].classList.remove('active-db-tab'); }
+
+            document.getElementById(panelId).classList.add('active-panel');
+            event.currentTarget.classList.add('active-db-tab');
+        }
+
+        // 4. Controller Simulator Iframe Loader
+        function refreshIframe(chipElement, urlTarget) {
+            document.getElementById('dashboardIframe').src = urlTarget;
+            const chips = chipElement.parentElement.getElementsByClassName('chip-btn');
+            for (let i = 0; i < chips.length; i++) { chips[i].classList.remove('active-chip'); }
+            chipElement.classList.add('active-chip');
+        }
+
+        // 5. Controller WhatsApp Form
+        function handleRegistrationSubmit(event) {
+            event.preventDefault();
+            const name = document.getElementById('student-name').value;
+            const phone = document.getElementById('student-phone').value;
+            const program = document.getElementById('student-program').value;
+            
+            const waAdminNumber = "6281901685253";
+            const rawMessage = `Halo Admin ETK Global Yogyakarta,%0A%0ASaya mendaftar kelas persiapan melalui form digital:%0A%0A` +
+                               `👤 *Nama:* ${encodeURIComponent(name)}%0A` +
+                               `📞 *Kontak:* ${encodeURIComponent(phone)}%0A` +
+                               `🎓 *Program:* ${encodeURIComponent(program)}%0A%0A` +
+                               `Mohon diinfokan agenda placement dan jadwal terdekat. Terima kasih!`;
+            
+            window.open(`https://wa.me/${waAdminNumber}?text=${rawMessage}`, '_blank');
+        }
+    </script>
+</body>
+</html>
